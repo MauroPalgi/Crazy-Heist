@@ -2,7 +2,7 @@
 
 ---
 
-# Band Heist
+# Crazy Heist
 
 Band Heist es un juego de acción y conducción inspirado en "Crazy Taxi". Los jugadores controlan una banda de ladrones que debe robar bancos y escapar de la policía en un tiempo limitado. Cada robo exitoso aumenta la recompensa y la dificultad, creando un bucle de juego rápido y emocionante.
 
