@@ -6,24 +6,24 @@ public class SceneTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject roadSection;
+    public int roadLenght;
+
+    private void Start()
+    {
+    }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger Entered by: " + other.gameObject.name);
 
-        // Loguear la posición del objeto que entra en el trigger
-        Debug.Log("Object Position: " + other.transform.position);
-
-        // Loguear la rotación del objeto que entra en el trigger
-        Debug.Log("Object Rotation: " + other.transform.rotation);
-
-        // Loguear la escala del objeto que entra en el trigger
-        Debug.Log("Object Scale: " + other.transform.localScale);
 
         // Loguear todos los componentes del objeto
-        Component[] components = other.GetComponents<Component>();
+        Debug.Log("Tag: " + other.gameObject.tag);
         if (other.gameObject.CompareTag("Trigger"))
         {
-            Instantiate(roadSection, new Vector3(0, 0.1f, 65), Quaternion.identity);
+            Vector3 roadPosition = new Vector3(roadSection.transform.position.x + roadLenght, roadSection.transform.position.y, roadSection.transform.position.z );
+                    Debug.Log("here");
+
+
+            Instantiate(roadSection, roadPosition, roadSection.transform.rotation);
         }
     }
 }
