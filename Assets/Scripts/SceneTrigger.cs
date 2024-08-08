@@ -6,7 +6,7 @@ public class SceneTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject roadSection;
-    public int roadLenght;
+    private bool isAlreadyTrigger = false;
 
     private void Start()
     {
@@ -16,14 +16,11 @@ public class SceneTrigger : MonoBehaviour
 
 
         // Loguear todos los componentes del objeto
-        Debug.Log("Tag: " + other.gameObject.tag);
-        if (other.gameObject.CompareTag("Trigger"))
+
+        if (other.gameObject.CompareTag("Trigger") && !isAlreadyTrigger)
         {
-            Vector3 roadPosition = new Vector3(roadSection.transform.position.x + roadLenght, roadSection.transform.position.y, roadSection.transform.position.z );
-                    Debug.Log("here");
-
-
-            Instantiate(roadSection, roadPosition, roadSection.transform.rotation);
+            isAlreadyTrigger = true;
+            // PrefabManager.Instance.AddRoadPrefab();
         }
     }
 }
