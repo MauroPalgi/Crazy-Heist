@@ -19,4 +19,4 @@ MonoBehaviour:
     prefabPosition: {x: 0, y: 0, z: 0}
     prefabLenght: 0
   RoadType: 0
-  Prefab: {fileID: 8780117389263483226, guid: 641943bad9d0093439e3e14e9a68c747, type: 3}
+  Prefab: {fileID: 1344749027152767528, guid: 80e463a8d846e5b468b91b4fd8a50a51, type: 3}

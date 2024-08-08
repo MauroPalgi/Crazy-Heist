@@ -15,6 +15,8 @@ public class RoadManager : Singleton<RoadManager>
         var roadScriptable = ResourceSystem.Instance.GetRoad(t);
         var spawned = Instantiate(roadScriptable.Prefab, pos, Quaternion.identity);
 
+        var enviroment = GameObject.Find("Enviroment");
+        spawned.transform.SetParent(enviroment.transform);
         /* puedo modificar spawned aca*/
     }
 }
