@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField]    // Start is called before the first frame update
     public float fwdSpeed;
+    [SerializeField]    // Start is called before the first frame update
     public float turnSpeed;
+    [SerializeField]    // Start is called before the first frame update
     public float revSpeed;
     public float airDrag;
     public float groundDrag;
