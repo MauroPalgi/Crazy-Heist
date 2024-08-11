@@ -37,8 +37,6 @@ public class GameManager : Singleton<GameManager>
 
     private void HandleStarting()
     {
-        Debug.Log("Starting");
-
         ChangeState(GameState.SpawningRoads);
     }
 

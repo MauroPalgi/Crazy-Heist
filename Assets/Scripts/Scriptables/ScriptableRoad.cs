@@ -19,7 +19,7 @@ public class ScriptableRoad : ScriptableObject
 public enum RoadType
 {
     Straight = 0,
-    Left = 1,
+    Corner = 1,
     Right = 2
 }
 
