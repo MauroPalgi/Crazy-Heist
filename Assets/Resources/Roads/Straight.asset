@@ -20,3 +20,4 @@ MonoBehaviour:
     prefabLenght: 0
   RoadType: 0
   Prefab: {fileID: 335678675330238989, guid: 131b5e812b8efa64f9944a6dcbd53b15, type: 3}
+  PrefabLenght: 20

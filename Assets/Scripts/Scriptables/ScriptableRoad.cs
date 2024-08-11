@@ -12,6 +12,8 @@ public class ScriptableRoad : ScriptableObject
     public RoadType RoadType;
     public GameObject Prefab;
 
+    public int PrefabLenght;
+
 
 }
 
