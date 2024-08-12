@@ -19,46 +19,86 @@ public class CarController : MonoBehaviour
     private bool isCarGrounded;
 
     public Rigidbody sphereRB;
+
+    public bool isAiPlayer = false;
     void Start()
     {
         sphereRB.transform.parent = null;
+    }
+
+
+    public void SetInput(float externalMoveInput, float externalTurnInput)
+    {
+
+        if (isAiPlayer)
+        {
+            moveInput = externalMoveInput;
+            turnInput = externalTurnInput;
+
+
+            moveInput *= moveInput > 0 ? fwdSpeed : revSpeed;
+
+
+            transform.position = sphereRB.position;
+            float newRotation = turnInput * turnSpeed * Time.deltaTime * externalMoveInput;
+            transform.Rotate(0, newRotation, 0, Space.World);
+
+            RaycastHit hit;
+            isCarGrounded = Physics.Raycast(transform.position, -transform.up, out hit, 1f, groundLayer);
+            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            if (isCarGrounded)
+            {
+                sphereRB.drag = groundDrag;
+            }
+            else
+            {
+
+                sphereRB.drag = airDrag;
+
+            }
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        moveInput = Input.GetAxisRaw("Vertical");
-        turnInput = Input.GetAxisRaw("Horizontal");
-
-
-        moveInput *= moveInput > 0 ? fwdSpeed : revSpeed;
-
-
-        transform.position = sphereRB.position;
-        float newRotation = turnInput * turnSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
-        transform.Rotate(0, newRotation, 0, Space.World);
-
-        RaycastHit hit;
-        isCarGrounded = Physics.Raycast(transform.position, -transform.up, out hit, 1f, groundLayer);
-        transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-        if (isCarGrounded)
+        if (!isAiPlayer)
         {
-            sphereRB.drag = groundDrag;
-        }
-        else
-        {
+            moveInput = Input.GetAxisRaw("Vertical");
+            turnInput = Input.GetAxisRaw("Horizontal");
 
-            sphereRB.drag = airDrag;
 
+            moveInput *= moveInput > 0 ? fwdSpeed : revSpeed;
+
+
+            transform.position = sphereRB.position;
+            float newRotation = turnInput * turnSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
+            transform.Rotate(0, newRotation, 0, Space.World);
+
+            RaycastHit hit;
+            isCarGrounded = Physics.Raycast(transform.position, -transform.up, out hit, 1f, groundLayer);
+            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            if (isCarGrounded)
+            {
+                sphereRB.drag = groundDrag;
+            }
+            else
+            {
+
+                sphereRB.drag = airDrag;
+
+            }
         }
+
     }
 
     private void FixedUpdate()
     {
+
         if (isCarGrounded)
         {
-
             sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
         }
         else
