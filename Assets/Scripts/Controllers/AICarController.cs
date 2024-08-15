@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AICarController : MonoBehaviour
 {
+    private GameObject player;
     private Transform targetPositionTransform;
     private CarController carController;
     private Vector3 targetPosition;
@@ -16,8 +17,10 @@ public class AICarController : MonoBehaviour
 
     void Update()
     {
-        if (targetPositionTransform != null)
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
+        if (player != null)
         {
+            targetPositionTransform = player.transform;
             SetTargetPosition(targetPositionTransform.position);
             Vector3 dirToMoveForward = (targetPosition - transform.position).normalized;
             float dot = Vector3.Dot(transform.forward, dirToMoveForward);
@@ -35,6 +38,8 @@ public class AICarController : MonoBehaviour
 
             carController.SetInput(forwardAmount, turnAmount);
         }
+
+
     }
 
     public void SetTargetTransform(Transform target)

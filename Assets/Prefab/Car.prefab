@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3673673053847689378}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   sphereRB: {fileID: 5133135001394535929}
+  isAiPlayer: 0
 --- !u!1001 &4974287074989281791
 PrefabInstance:
   m_ObjectHideFlags: 0
