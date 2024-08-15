@@ -8,7 +8,7 @@ public class RoadManager : Singleton<RoadManager>
     private List<ScriptableRoad> _roads;
     public void SpawnRoads()
     {
-        // SpawnLongRoad();
+        SpawnLongRoad();
     }
 
 

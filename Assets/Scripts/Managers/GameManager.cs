@@ -9,7 +9,8 @@ public class GameManager : Singleton<GameManager>
 
     public GameState State { get; private set; }
 
-
+    private GameObject currentPlayer;
+    
     void Start() => ChangeState(GameState.Starting);
 
     public void ChangeState(GameState newState)
@@ -24,15 +25,35 @@ public class GameManager : Singleton<GameManager>
             case GameState.SpawningRoads:
                 HandleSpawningRoads();
                 break;
+            case GameState.SpawningPlayer:
+                HandleSpawningPlayer();
+                break;
+            case GameState.SpawningEnemies:
+                HandleSpawningEnemies();
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
 
         }
     }
 
+    private void HandleSpawningEnemies()
+    {
+        SpawnerManager.Instance.SpawningEnemies(currentPlayer);
+    }
+
+    private void HandleSpawningPlayer()
+    {
+        currentPlayer = PlayerManager.Instance.SpawnPlayer();
+        ChangeState(GameState.SpawningEnemies);
+
+    }
+
     private void HandleSpawningRoads()
     {
         RoadManager.Instance.SpawnRoads();
+        ChangeState(GameState.SpawningPlayer);
+
     }
 
     private void HandleStarting()
@@ -96,4 +117,6 @@ public enum GameState
 {
     Starting = 0,
     SpawningRoads = 1,
+    SpawningPlayer = 2,
+    SpawningEnemies = 3,
 }
