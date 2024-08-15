@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager>
     public GameState State { get; private set; }
 
     private GameObject currentPlayer;
-    
+
     void Start() => ChangeState(GameState.Starting);
 
     public void ChangeState(GameState newState)
@@ -39,7 +39,7 @@ public class GameManager : Singleton<GameManager>
 
     private void HandleSpawningEnemies()
     {
-        SpawnerManager.Instance.SpawningEnemies(currentPlayer);
+        SpawnerManager.Instance.SpawningEnemies();
     }
 
     private void HandleSpawningPlayer()

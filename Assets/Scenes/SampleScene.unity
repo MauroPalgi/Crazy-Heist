@@ -1032,7 +1032,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ai: {fileID: 4175020788312374720, guid: 25683919c90ab0743bbcd6ebbf7a3520, type: 3}
-  aiCarController: {fileID: 0}
 --- !u!1 &1693506416
 GameObject:
   m_ObjectHideFlags: 0
