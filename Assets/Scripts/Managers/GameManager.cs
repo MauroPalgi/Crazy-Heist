@@ -52,13 +52,13 @@ public class GameManager : Singleton<GameManager>
     private void HandleSpawningRoads()
     {
         RoadManager.Instance.SpawnRoads();
-        ChangeState(GameState.SpawningPlayer);
+        // ChangeState(GameState.SpawningPlayer);
 
     }
 
     private void HandleStarting()
     {
-        //ChangeState(GameState.SpawningRoads);
+        ChangeState(GameState.SpawningRoads);
     }
 
     // void InitializePrefabMatrix()

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7518173351705267593}
   m_Layer: 0
   m_Name: CarAI
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f528f51b44a2f43899b2d159e93b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPositionTransform: {fileID: 0}
+  reacheadTargetDistance: 10
 --- !u!1 &6062398170301950769
 GameObject:
   m_ObjectHideFlags: 0

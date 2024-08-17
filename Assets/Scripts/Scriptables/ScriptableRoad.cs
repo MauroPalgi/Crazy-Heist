@@ -8,11 +8,14 @@ using UnityEngine;
 public class ScriptableRoad : ScriptableObject
 {
     [SerializeField] private Stats _stats;
-    public Stats BaseStats => _stats;
+    private Stats BaseStats => _stats;
     public RoadType RoadType;
     public GameObject Prefab;
-
     public int PrefabLenght;
+
+    private Quaternion nextPrefabOrientation;
+
+    // private Dictionary<Vector3, Quaternion> getNextPositionAndOrientation(Vector3 currenPosition, Quaternion currentOrientation);
 
 
 }

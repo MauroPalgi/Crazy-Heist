@@ -41,7 +41,6 @@ public class AICarController : MonoBehaviour
             float angleToDir = Vector3.SignedAngle(transform.forward, dirToMoveForward, Vector3.up);
 
             float forwardAmount = dot > 0 ? 1f : -1f;
-            Debug.Log("" + angleToDir);
             float turnAmount = angleToDir > 0 ? 1f : -1f;
             float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
 
@@ -69,7 +68,6 @@ public class AICarController : MonoBehaviour
                 forwardAmount = 0;
                 turnAmount = 0;
             }
-            Debug.Log(turnAmount);
             carController.SetInput(forwardAmount, turnAmount);
         }
 

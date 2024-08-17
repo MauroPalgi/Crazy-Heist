@@ -20,5 +20,8 @@ public class ResourceSystem : SingletonPersistent<ResourceSystem>
         _RoadDict = Roads.ToDictionary(r => r.RoadType, r => r);
     }
     public ScriptableRoad GetRoad(RoadType t) => _RoadDict[t];
+    public Dictionary<RoadType, ScriptableRoad> GetAllRoad() => Roads.ToDictionary(r => r.RoadType, r => r);
+
+    public List<RoadType> GetRoadTypes() => Roads.Select(r => r.RoadType).ToList();
 }
 
