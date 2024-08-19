@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
     PrefabPath: 
-    RoadType: 0
     isCharacterPresent: 0
-    prefabPosition: {x: 0, y: 0, z: 0}
-    prefabLenght: 0
+    prefabLenght: 20
+    prefabOutOrientation: {x: 1, y: 0, z: 0}
   RoadType: 0
-  Prefab: {fileID: 335678675330238989, guid: 131b5e812b8efa64f9944a6dcbd53b15, type: 3}
-  PrefabLenght: 20
+  Prefab: {fileID: 856022688585896906, guid: 880f9ed06152b834e8b54d6bc2ef1b8c, type: 3}
